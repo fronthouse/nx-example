@@ -1,14 +1,14 @@
 {
-  "version": 1,
+  "version": 2,
   "projects": {
     "my-app": {
       "projectType": "application",
       "root": "apps/my-app",
       "sourceRoot": "apps/my-app/src",
       "prefix": "nx-example",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "executor": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/my-app",
@@ -55,7 +55,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "my-app:build:production"
@@ -67,19 +67,19 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "executor": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "my-app:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/my-app/src/**/*.ts", "apps/my-app/src/**/*.html"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/my-app"],
           "options": {
             "jestConfig": "apps/my-app/jest.config.js",
@@ -93,9 +93,9 @@
       "root": "apps/my-app-e2e",
       "sourceRoot": "apps/my-app-e2e/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "executor": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/my-app-e2e/cypress.json",
             "devServerTarget": "my-app:serve:development"
@@ -107,7 +107,7 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/my-app-e2e/**/*.{js,ts}"]
@@ -116,6 +116,7 @@
       },
       "tags": [],
       "implicitDependencies": ["my-app"]
-    }
+    },
+    "ui": "libs/ui"
   }
 }
