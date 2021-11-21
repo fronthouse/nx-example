@@ -5,9 +5,13 @@
     {
       "files": ["*.ts"],
       "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
+      "parserOptions": {
+        "project": ["apps/my-app/tsconfig.*?.json"]
+      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
