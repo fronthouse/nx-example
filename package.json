@@ -12,6 +12,7 @@
     "test:all": "nx affected --target=test --all",
     "lint": "nx workspace-lint && nx affected --target=lint",
     "lint:all": "nx workspace-lint && nx affected --target=lint --all",
+    "depgraph": "nx dep-graph",
     "update": "nx migrate latest",
     "migrate": "nx migrate --run-migrations"
   },
