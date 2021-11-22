@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/app-core",
+  "sourceRoot": "libs/app-core/src",
+  "prefix": "appcore",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/app-core"],
+      "options": {
+        "project": "libs/app-core/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/app-core/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/app-core/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/app-core"],
+      "options": {
+        "jestConfig": "libs/app-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/app-core/src/**/*.ts", "libs/app-core/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["type:app-core"]
+}

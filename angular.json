@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "app-core": "libs/app-core",
     "data": "libs/data",
     "my-app": {
       "projectType": "application",
