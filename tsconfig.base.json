@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-example/data": ["libs/data/src/index.ts"],
       "@nx-example/ui": ["libs/ui/src/index.ts"]
     }
   },

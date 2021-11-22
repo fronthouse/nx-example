@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data": "libs/data",
     "my-app": {
       "projectType": "application",
       "root": "apps/my-app",
