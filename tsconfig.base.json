@@ -17,6 +17,7 @@
     "paths": {
       "@nx-example/appcore": ["libs/app-core/src/index.ts"],
       "@nx-example/data": ["libs/data/src/index.ts"],
+      "@nx-example/features": ["libs/features/src/index.ts"],
       "@nx-example/ui": ["libs/ui/src/index.ts"]
     }
   },

@@ -3,6 +3,7 @@
   "projects": {
     "app-core": "libs/app-core",
     "data": "libs/data",
+    "features": "libs/features",
     "my-app": {
       "projectType": "application",
       "root": "apps/my-app",
