@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let item of items; trackBy: getId" (click)="onItemSelected(item.id)">
+        {{ item.tittel }}
+    </li>
+</ul>

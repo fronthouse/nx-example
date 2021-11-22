@@ -1,0 +1,22 @@
+import { Component, Input, Output } from '@angular/core';
+import { MylistListItem } from './mylist.interface';
+
+@Component({
+  selector: '<%= selector%>',
+  templateUrl: './<%= dasherize(featureName)%>.component.html',
+  styleUrls: ['./<%= dasherize(featureName)%>.component.scss']
+})
+export class <%= classify(featureName)%>Component {
+  public selectedItemId = '';
+  @Input() items: <%= classify(featureName)%>Item[] = [];
+  @Output() itemSelect = new EventEmitter<string>();
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() {}
+
+  public onItemSelected(itemId: string) {
+    this.selectedItemId = itemId;
+    this.itemSelect.emit(itemId);
+  }
+
+  getId = (item) => item.id;
+}

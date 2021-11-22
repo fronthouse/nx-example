@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "feature",
+  "type": "object",
+  "description": "A feature is a 'dumb' component that should not contain references to routing, state or any other app-specific context.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Feature name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "domainname": {
+      "type": "string",
+      "description": "Domain name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Feature type",
+      "default": "basic",
+      "enum": ["basic", "list", "form-part"]
+    }
+  },
+  "required": ["name", "domainname", "type"]
+}

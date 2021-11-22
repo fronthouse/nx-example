@@ -1,0 +1,56 @@
+import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular';
+import { <%= classify(featureName)%>Component } from './<%= dasherize(featureName)%>.component';
+import { NbThemeModule } from '@nebular/theme';
+import { <%= classify(featureName)%>Module } from '.';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
+@Component({
+  selector: '<%= selector%>-parent',
+  template: `
+  <form [formGroup]="form">
+    <<%= selector%>
+      formControlName="formPart"
+    ></<%= selector%>>
+  </form>
+
+  <div> {{ form.value | json  }} </div>
+  <div> {{form.valid ? 'valid': 'invalid'}} </div>
+  <div> {{form.touched ? 'touched': 'untouched'}} </div>
+`})
+class <%= classify(featureName)%>ParentComponent {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() { }
+  form: FormGroup = new FormGroup({
+    formPart: new FormControl({
+      name: ''
+    })
+  });
+
+}
+
+export default {
+  title: '<%= classify(featureName)%>',
+  component: <%= classify(featureName)%>Component,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        CommonModule,
+        <%= classify(featureName)%>Module,
+        ReactiveFormsModule,
+        NbThemeModule.forRoot({ name: 'default' })
+      ],
+      declarations: [<%= classify(featureName)%>ParentComponent]
+    }),
+    componentWrapperDecorator(<%= classify(featureName)%>ParentComponent),
+  ],
+} as Meta<<%= classify(featureName)%>Component>;
+
+export const Primary: Story<<%= classify(featureName)%>Component> = () => ({
+  template: ``
+});
+Primary.args = {
+
+};

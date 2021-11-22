@@ -1,0 +1,24 @@
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { <%= classify(featureName)%>Component, <%= classify(featureName)%>Module } from '.';
+
+describe('<%= classify(featureName)%>Component', () => {
+  let component: <%= classify(featureName)%>Component;
+  let fixture: ComponentFixture<<%= classify(featureName)%>Component>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [<%= classify(featureName)%>Module],
+      providers: [ ]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= classify(featureName)%>Component);
+    component = fixture.componentInstance;
+  });
+
+  it('Feature <%= classify(featureName)%>Component running', () => {
+    expect(component).toBeTruthy();
+  });
+
+});

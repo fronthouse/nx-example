@@ -1,0 +1,4 @@
+export interface <%= classify(featureName)%>Item {
+    id: string;
+    tittel: string;
+}

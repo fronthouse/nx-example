@@ -1,0 +1,24 @@
+import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { <%= classify(featureName)%>Component } from './<%= dasherize(featureName)%>.component';
+import { NbThemeModule } from '@nebular/theme';
+import { <%= classify(featureName)%>Module } from '.';
+
+export default {
+  title: '<%= classify(featureName)%>',
+  component: <%= classify(featureName)%>Component,
+  decorators: [
+    moduleMetadata({
+      imports: [<%= classify(featureName)%>Module, NbThemeModule.forRoot({ name: 'default' })],
+    }),
+  ],
+} as Meta<<%= classify(featureName)%>Component>;
+
+const Template: Story<<%= classify(featureName)%>Component> = (args: <%= classify(featureName)%>Component) => ({
+  component: <%= classify(featureName)%>Component,
+  props: args,
+});
+
+export const Primary = Template.bind({});
+Primary.args = {
+
+};

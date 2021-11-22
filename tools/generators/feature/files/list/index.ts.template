@@ -1,0 +1,17 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { <%= classify(featureName)%>Component } from './<%= dasherize(featureName)%>.component';
+
+
+@NgModule({
+  imports: [
+    CommonModule
+  ],
+  declarations: [<%= classify(featureName)%>Component],
+  exports: [<%= classify(featureName)%>Component]
+})
+export class <%= classify(featureName)%>Module { }
+
+export { <%= classify(featureName)%>Component } from './<%= dasherize(featureName)%>.component';
+
+export * from './<%= dasherize(featureName)%>.component';
