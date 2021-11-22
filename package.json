@@ -14,6 +14,7 @@
     "lint:all": "nx workspace-lint && nx affected:lint --all",
     "e2e": "nx e2e my-app-e2e --watch",
     "depgraph": "nx dep-graph",
+    "doc": "npx @compodoc/compodoc -p ./apps/my-app/tsconfig.doc.json",
     "update": "nx migrate latest",
     "migrate": "nx migrate --run-migrations"
   },
