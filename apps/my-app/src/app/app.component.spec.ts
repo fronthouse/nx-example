@@ -1,29 +1,30 @@
-import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
+import {
+  detectChanges,
+  qn,
+  ComponentFixture,
+  elmText,
+  configureTestingModule
+} from '@fronthouse/testhelp';
+import { AppModule } from './app.module';
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AppComponent]
-    }).compileComponents();
-  });
+  let fixture: ComponentFixture<AppComponent>;
+  configureTestingModule(AppComponent, AppModule).subscribe(
+    (f) => (fixture = f as ComponentFixture<AppComponent>)
+  );
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'my-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('my-app');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to my-app!');
+    detectChanges();
+    expect(elmText(qn('h1'))).toContain('Welcome to My App!');
   });
 });
