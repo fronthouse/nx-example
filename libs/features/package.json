@@ -1,6 +1,9 @@
 {
   "name": "@nx-example/features",
   "version": "0.0.1",
+  "scripts": {
+    "storybook": "cd ../.. && nx run features:storybook"
+  },
   "peerDependencies": {
     "@angular/common": "^13.0.0",
     "@angular/core": "^13.0.0"
